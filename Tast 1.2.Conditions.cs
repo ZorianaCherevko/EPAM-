@@ -1,4 +1,11 @@
-﻿using System;
+/*Find the maximum integer, that can be obtained by permutation of
+numbers of an arbitrary three-digit positive integer n (100<=n<=999).
+Example,
+n =165 result = 651
+*/
+
+
+using System;
 
 namespace switch678
 {
@@ -6,17 +13,26 @@ namespace switch678
     {
         static void Main(string[] args)
         {
-            int n, sum = 0,x;
-            n = int.Parse(Console.ReadLine());
+            int x = n % 100;
 
-            while (n > 0)
+            int a = (n - x) / 100;
+            int c = x % 10;
+            int b = (n - (n - x) - c) / 10;
+
+            int max3 = Math.Max(a, Math.Max(b, c));
+            int min3 = Math.Min(a, Math.Min(b, c));
+
+            int median = a;
+            if (a < b && a < c)
             {
-                x = n % 10;
-                n = n / 10;
-                if (x % 2 != 1)
-                    sum = sum + x;
+                median = Math.Min(b, c);
             }
-            Console.WriteLine(sum);
+            if (a > b && a > c)
+            {
+                median = Math.Max(b, c);
+            }
+            return int.Parse($"{max3}{median}{min3}");
+
         }
     }
 }
