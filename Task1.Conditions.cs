@@ -1,4 +1,15 @@
-﻿using System;
+/*For a given integer n calculate the value which is equal to a:
+• squared number, if its value is strictly positive;
+• modulus of a number, if its value is strictly negative;
+• zero, if the integer n is zero.
+Example,
+n = 4 result = 16
+n = -5 result = 5
+n = 0 result = 0
+*/
+
+
+using System;
 
 namespace Blabla
 {
